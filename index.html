@@ -923,6 +923,7 @@ new Vue({
     chartGauge: null,
   },
   computed: {
+    currentRiskColor(){ return this.riskColor; },
     currentScale(){ return SCALE_CONFIG[this.currentScaleId] || SCALE_CONFIG.csi; },
     questions(){
       if(this.currentScaleId === 'csi') return this.formatCSIQuestions();
