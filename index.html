@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-<title>亲密关系测评中心</title>
+<title>亲密关系测评中心（心理老师：王梅）</title>
 <script src="https://unpkg.com/vue@2.7.16/dist/vue.min.js"></script>
 <script src="https://unpkg.com/echarts@5.4.3/dist/echarts.min.js"></script>
 <style>
@@ -579,7 +579,7 @@ body {
   <div v-if="page === 'home'" class="home-page">
     <div class="header-section">
       <h1>亲密关系测评中心</h1>
-      <p>专业量表 · 科学评估 · 深度解析</p>
+      <p>心理老师：王梅</p>
     </div>
     <div class="scale-cards-grid">
       <div class="scale-card" @click="openScale('csi')">
@@ -619,8 +619,7 @@ body {
       </div>
     </div>
     <div class="bottom-tip">
-      本测评结果仅供自我了解参考，不构成专业诊断<br>
-      如有困扰请寻求专业心理咨询师帮助
+      心理老师：王梅
     </div>
   </div>
 
@@ -662,9 +661,6 @@ body {
     <div class="guide-section">
       <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg>参考文献</h4>
       <p style="font-size:12px;">{{ currentScale.reference }}</p>
-    </div>
-    <div class="disclaimer-box">
-      {{ currentScale.disclaimer }}
     </div>
     <div class="guide-checkbox" @click="guideAgreed = !guideAgreed">
       <div class="check-box" :class="{checked: guideAgreed}">
@@ -805,15 +801,6 @@ body {
       <button class="action-btn secondary" @click="shareReport"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>分享</button>
       <button class="action-btn primary" @click="retakeQuiz"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="1 4 1 10 7 10"/><path d="M3.51 15a9 9 0 1 0 2.13-9.36L1 10"/></svg>重新测评</button>
     </div>
-
-    <div class="hotline-box">
-      <h4><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>心理援助热线</h4>
-      <div class="hotline-list">
-        <div>全国心理援助热线：<span class="phone">400-161-9995</span></div>
-        <div>北京心理危机研究与干预中心：<span class="phone">010-82951332</span></div>
-        <div>希望24热线：<span class="phone">400-161-9995</span></div>
-      </div>
-    </div>
   </div>
 
 </div>
@@ -870,7 +857,7 @@ const SCALE_CONFIG = {
     questions: 16,
     duration: 3,
     audience: '有伴侣者',
-    maxScore: 81,
+    maxScore: 48,
     color: '#9d6b8a',
     colorDark: '#7a4e6c',
     instruction: '请根据你目前的真实感受作答。所有题目均无对错之分，答案也不影响任何评价。请根据第一反应快速选择，不要过多思考。',
@@ -879,11 +866,11 @@ const SCALE_CONFIG = {
     reference: 'Funk, J.L., & Rogge, R.D. (2007). Testing the Ruler with Item Response Theory: Increasing Precision of Measurement for Relationship Satisfaction with the Couples Satisfaction Index. Journal of Family Psychology, 21, 572–583.',
     disclaimer: '本测评结果仅供自我了解和参考，不构成任何专业诊断。如果你对自己的关系状态感到困扰，建议寻求专业婚姻咨询师或心理治疗师的帮助。',
     riskLevels: [
-      {label:'显著困扰',range:'0-30',color:'#8b3a3a',pct:10,population:'约10%'},
-      {label:'关系偏低',range:'31-51',color:'#c47b6b',pct:20,population:'约20%'},
-      {label:'关系一般',range:'52-65',color:'#d4a648',pct:35,population:'约35%'},
-      {label:'关系良好',range:'66-75',color:'#a7c47e',pct:25,population:'约25%'},
-      {label:'关系优秀',range:'76-81',color:'#6b8f6e',pct:10,population:'约10%'},
+      {label:'显著困扰',range:'0-14',color:'#8b3a3a',pct:10,population:'约10%'},
+      {label:'关系偏低',range:'15-23',color:'#c47b6b',pct:20,population:'约20%'},
+      {label:'关系一般',range:'24-32',color:'#d4a648',pct:35,population:'约35%'},
+      {label:'关系良好',range:'33-41',color:'#a7c47e',pct:25,population:'约25%'},
+      {label:'关系优秀',range:'42-48',color:'#6b8f6e',pct:10,population:'约10%'},
     ],
   },
   qsi: {
@@ -894,7 +881,7 @@ const SCALE_CONFIG = {
     questions: 16,
     duration: 3,
     audience: '有伴侣者',
-    maxScore: 80,
+    maxScore: 48,
     color: '#9d6b8a',
     colorDark: '#7a4e6c',
     instruction: '回想最近2周你的性生活状况，请根据真实感受作答。所有题目均无对错之分，请放心填写。',
@@ -903,11 +890,11 @@ const SCALE_CONFIG = {
     reference: 'Shaw, A. M., & Rogge, R. D. (2016). Evaluating and Refining the Construct of Sexual Quality with Item Response Theory: Development of the Quality of Sex Inventory. Archives of Sexual Behavior, 45, 249–270.',
     disclaimer: '本测评结果仅供自我了解和参考，不构成任何医疗或专业诊断。如果你对自己的性健康或性关系感到困扰，建议咨询专业医生或性治疗师。',
     riskLevels: [
-      {label:'显著不满',range:'0-20',color:'#8b3a3a',pct:10,population:'约10%'},
-      {label:'质量偏低',range:'21-40',color:'#c47b6b',pct:20,population:'约20%'},
-      {label:'质量一般',range:'41-55',color:'#d4a648',pct:35,population:'约35%'},
-      {label:'质量良好',range:'56-70',color:'#a7c47e',pct:25,population:'约25%'},
-      {label:'质量优秀',range:'71-80',color:'#6b8f6e',pct:10,population:'约10%'},
+      {label:'显著不满',range:'0-14',color:'#8b3a3a',pct:10,population:'约10%'},
+      {label:'质量偏低',range:'15-23',color:'#c47b6b',pct:20,population:'约20%'},
+      {label:'质量一般',range:'24-32',color:'#d4a648',pct:35,population:'约35%'},
+      {label:'质量良好',range:'33-41',color:'#a7c47e',pct:25,population:'约25%'},
+      {label:'质量优秀',range:'42-48',color:'#6b8f6e',pct:10,population:'约10%'},
     ],
   },
 };
@@ -955,45 +942,34 @@ new Vue({
   methods: {
     formatCSIQuestions(){
       const optsNormal = [
-        {value:0,label:'完全不正确'},
-        {value:1,label:'有点正确'},
-        {value:2,label:'有些正确'},
-        {value:3,label:'大部分正确'},
-        {value:4,label:'几乎完全正确'},
-        {value:5,label:'完全正确'},
+        {value:0,label:'完全不符合'},
+        {value:1,label:'有点符合'},
+        {value:2,label:'比较符合'},
+        {value:3,label:'完全符合'},
       ];
       const optsSpecial1 = [
-        {value:0,label:'极度不幸福'},
-        {value:1,label:'相当不幸福'},
-        {value:2,label:'有点不幸福'},
-        {value:3,label:'幸福'},
-        {value:4,label:'非常幸福'},
-        {value:5,label:'极度幸福'},
-        {value:6,label:'完美'},
+        {value:0,label:'很不幸福'},
+        {value:1,label:'不太幸福'},
+        {value:2,label:'比较幸福'},
+        {value:3,label:'非常幸福'},
       ];
       const optsSpecial2 = [
-        {value:5,label:'总是'},
-        {value:4,label:'大多数时候'},
-        {value:3,label:'超过一半的时候'},
-        {value:2,label:'偶尔'},
-        {value:1,label:'很少'},
+        {value:3,label:'总是'},
+        {value:2,label:'经常'},
+        {value:1,label:'偶尔'},
         {value:0,label:'从不'},
       ];
       const optsSemanticLeft = [
-        {value:5,label:'非常偏向左边'},
-        {value:4,label:'比较偏向左边'},
-        {value:3,label:'稍微偏向左边'},
-        {value:2,label:'稍微偏向右边'},
+        {value:3,label:'非常偏向左边'},
+        {value:2,label:'比较偏向左边'},
         {value:1,label:'比较偏向右边'},
         {value:0,label:'非常偏向右边'},
       ];
       const optsSemanticRight = [
         {value:0,label:'非常偏向左边'},
         {value:1,label:'比较偏向左边'},
-        {value:2,label:'稍微偏向左边'},
-        {value:3,label:'稍微偏向右边'},
-        {value:4,label:'比较偏向右边'},
-        {value:5,label:'非常偏向右边'},
+        {value:2,label:'比较偏向右边'},
+        {value:3,label:'非常偏向右边'},
       ];
       return CSI_DATA.map(item=>{
         const id = 'csi_'+item[0];
@@ -1010,11 +986,9 @@ new Vue({
     formatQSIQuestions(){
       const options = [
         {value:0,label:'完全不符合'},
-        {value:1,label:'稍微符合'},
-        {value:2,label:'有些符合'},
-        {value:3,label:'大部分符合'},
-        {value:4,label:'非常符合'},
-        {value:5,label:'完全符合'},
+        {value:1,label:'有点符合'},
+        {value:2,label:'比较符合'},
+        {value:3,label:'完全符合'},
       ];
       return QSI_DATA.map(item=>{
         return {
@@ -1075,10 +1049,18 @@ new Vue({
     finishQuiz(){
       this.page = 'transition';
       setTimeout(()=>{
-        this.calculateScores();
+        try{
+          this.calculateScores();
+        }catch(e){
+          console.error('Score calculation error:', e);
+        }
         this.page = 'report';
         this.$nextTick(()=>{
-          this.initGaugeChart();
+          try{
+            this.initGaugeChart();
+          }catch(e){
+            console.error('Chart init error:', e);
+          }
         });
       }, 1500);
     },
@@ -1101,10 +1083,10 @@ new Vue({
       // Risk level
       const levels = this.currentScale.riskLevels;
       let idx = 0;
-      if(total >= 76) idx = 4;
-      else if(total >= 66) idx = 3;
-      else if(total >= 52) idx = 2;
-      else if(total >= 31) idx = 1;
+      if(total >= 42) idx = 4;
+      else if(total >= 33) idx = 3;
+      else if(total >= 24) idx = 2;
+      else if(total >= 15) idx = 1;
       else idx = 0;
       this.riskIndex = idx;
       this.riskLabel = levels[idx].label;
@@ -1116,10 +1098,10 @@ new Vue({
 
       // Dimension scores (CSI is single-dimension but we break into sub-categories for report)
       const categories = {
-        happiness: { label: '关系幸福度', items: [1,2,10], max: 17, score: 0 },
-        intimacy: { label: '亲密与温暖', items: [4,5,6,3], max: 20, score: 0 },
-        reward: { label: '满足与回报', items: [7,8,9], max: 15, score: 0 },
-        feeling: { label: '整体感受', items: [11,12,13,14,15,16], max: 30, score: 0 },
+        happiness: { label: '关系幸福度', items: [1,2,10], max: 9, score: 0 },
+        intimacy: { label: '亲密与温暖', items: [4,5,6,3], max: 12, score: 0 },
+        reward: { label: '满足与回报', items: [7,8,9], max: 9, score: 0 },
+        feeling: { label: '整体感受', items: [11,12,13,14,15,16], max: 18, score: 0 },
       };
       for(let key in categories){
         const cat = categories[key];
@@ -1171,9 +1153,9 @@ new Vue({
       return descs[key].low;
     },
     getCSIConclusion(total){
-      if(total >= 70) return '你和伴侣的关系满意度处于较高水平，这段关系为你带来了较多的幸福和满足感。你们之间有良好的亲密感和默契，是彼此重要的支持来源。';
-      if(total >= 52) return '你们的关系整体处于中等偏上水平，有不少满意的地方，同时也存在一些可以改善的空间。关系中的小摩擦是正常的，关键在于如何面对和沟通。';
-      if(total >= 31) return '你在这段关系中体验到了较多的不满足感。这可能与沟通方式、需求表达或期望差异有关。值得花一些时间和精力来审视和改善关系质量。';
+      if(total >= 40) return '你和伴侣的关系满意度处于较高水平，这段关系为你带来了较多的幸福和满足感。你们之间有良好的亲密感和默契，是彼此重要的支持来源。';
+      if(total >= 24) return '你们的关系整体处于中等偏上水平，有不少满意的地方，同时也存在一些可以改善的空间。关系中的小摩擦是正常的，关键在于如何面对和沟通。';
+      if(total >= 15) return '你在这段关系中体验到了较多的不满足感。这可能与沟通方式、需求表达或期望差异有关。值得花一些时间和精力来审视和改善关系质量。';
       return '你目前在关系中感受到显著的困扰和痛苦。这可能是一个信号，提示你们的关系需要认真对待和处理。建议寻求专业的婚姻咨询或心理辅导帮助。';
     },
     getCSIDeepInsight(total, idx){
@@ -1238,17 +1220,17 @@ new Vue({
       });
 
       // Total quality score: satisfaction max + reverse of dissatisfaction
-      const dissatMax = 40; // 8 items * 5
+      const dissatMax = 24; // 8 items * 3
       const totalQuality = satScore + (dissatMax - dissatScore);
       this.totalScore = totalQuality;
 
       // Risk level
       const levels = this.currentScale.riskLevels;
       let idx = 0;
-      if(totalQuality >= 71) idx = 4;
-      else if(totalQuality >= 56) idx = 3;
-      else if(totalQuality >= 41) idx = 2;
-      else if(totalQuality >= 21) idx = 1;
+      if(totalQuality >= 42) idx = 4;
+      else if(totalQuality >= 33) idx = 3;
+      else if(totalQuality >= 24) idx = 2;
+      else if(totalQuality >= 15) idx = 1;
       else idx = 0;
       this.riskIndex = idx;
       this.riskLabel = levels[idx].label;
@@ -1262,8 +1244,8 @@ new Vue({
         satisfaction: {
           label: '性满意度',
           score: satScore,
-          max: 40,
-          desc: this.getQSIDimDesc('satisfaction', satScore, 40),
+          max: 24,
+          desc: this.getQSIDimDesc('satisfaction', satScore, 24),
         },
         dissatisfaction: {
           label: '性不满意度（反向）',
