@@ -732,10 +732,10 @@ body {
     <div class="report-score-card">
       <div class="score-label">总分</div>
       <div style="display:flex;align-items:baseline;justify-content:center;gap:4px;">
-        <span class="score-value" :style="{color: currentRiskColor}">{{ totalScore }}</span>
+        <span class="score-value" :style="{color: riskColor}">{{ totalScore }}</span>
         <span class="score-max">/ {{ currentScale.maxScore }}</span>
       </div>
-      <div class="risk-badge" :style="{background: currentRiskColor}">{{ riskLabel }}</div>
+      <div class="risk-badge" :style="{background: riskColor}">{{ riskLabel }}</div>
       <div class="score-percentile"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg>{{ percentileText }}</div>
     </div>
 
@@ -923,7 +923,6 @@ new Vue({
     chartGauge: null,
   },
   computed: {
-    currentRiskColor(){ return this.riskColor; },
     currentScale(){ return SCALE_CONFIG[this.currentScaleId] || SCALE_CONFIG.csi; },
     questions(){
       if(this.currentScaleId === 'csi') return this.formatCSIQuestions();
