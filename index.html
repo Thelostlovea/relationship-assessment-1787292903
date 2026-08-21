@@ -936,10 +936,10 @@ const CSI_DATA = [
   [4,'我与伴侣的关系让我感到快乐。','satisfaction',false,'normal'],
   [5,'我与伴侣之间有一段温暖舒适的关系。','satisfaction',false,'normal'],
   [6,'我真的感到自己是与伴侣组成一个团队的一部分。','satisfaction',false,'normal'],
-  [7,'你与伴侣的关系带来的满足感如何？','satisfaction',false,'normal'],
-  [8,'你的伴侣在多大程度上满足了你的需求？','satisfaction',false,'normal'],
-  [9,'你的关系在多大程度上满足了最初的期望？','satisfaction',false,'normal'],
-  [10,'总体而言，你对自己的关系有多满意？','satisfaction',false,'normal'],
+  [7,'你与伴侣的关系带来的满足感如何？','satisfaction',false,'special3'],
+  [8,'你的伴侣在多大程度上满足了你的需求？','satisfaction',false,'special4'],
+  [9,'你的关系在多大程度上满足了最初的期望？','satisfaction',false,'special4'],
+  [10,'总体而言，你对自己的关系有多满意？','satisfaction',false,'special3'],
   [11,'有趣 — 无聊（请选择偏向哪一端及程度）','satisfaction',false,'semantic_left_positive'],
   [12,'糟糕 — 好（请选择偏向哪一端及程度）','satisfaction',true,'semantic_right_positive'],
   [13,'充实 — 空虚（请选择偏向哪一端及程度）','satisfaction',false,'semantic_left_positive'],
@@ -1090,6 +1090,18 @@ new Vue({
         {value:1,label:'偶尔'},
         {value:0,label:'从不'},
       ];
+      const optsSpecial3 = [
+        {value:0,label:'非常不满意'},
+        {value:1,label:'不太满意'},
+        {value:2,label:'比较满意'},
+        {value:3,label:'非常满意'},
+      ];
+      const optsSpecial4 = [
+        {value:0,label:'几乎没有'},
+        {value:1,label:'有一些'},
+        {value:2,label:'比较多'},
+        {value:3,label:'非常多'},
+      ];
       const optsSemanticLeft = [
         {value:3,label:'非常偏向左边'},
         {value:2,label:'比较偏向左边'},
@@ -1109,6 +1121,8 @@ new Vue({
         let options = optsNormal;
         if(type === 'special1') options = optsSpecial1;
         else if(type === 'special2') options = optsSpecial2;
+        else if(type === 'special3') options = optsSpecial3;
+        else if(type === 'special4') options = optsSpecial4;
         else if(type === 'semantic_left_positive') options = optsSemanticLeft;
         else if(type === 'semantic_right_positive') options = optsSemanticRight;
         return { id, text, options, type };
