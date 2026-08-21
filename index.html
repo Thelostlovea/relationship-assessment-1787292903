@@ -932,14 +932,14 @@ body {
 const CSI_DATA = [
   [1,'总的来说，你和伴侣在一起时，是否感到幸福和开心？','satisfaction',false,'special1'],
   [2,'在日常生活中，你和伴侣的相处是否顺畅，很少出现矛盾和冲突？','satisfaction',false,'special2'],
-  [3,'你觉得你和伴侣之间的关系是否稳固，不会因为吵架或外部压力就轻易动摇？','satisfaction',false,'normal'],
-  [4,'和伴侣在一起的日子，你是否常常感到开心和快乐，而不是压抑或委屈？','satisfaction',false,'normal'],
-  [5,'你和伴侣之间是否有一种温暖、舒适的感觉，可以在对方面前放松做自己？','satisfaction',false,'normal'],
-  [6,'你是否觉得你和伴侣像一个团队，遇到事情会一起商量、共同面对，而不是各管各的？','satisfaction',false,'normal'],
-  [7,'这段关系是否让你感到满足和充实，觉得拥有这段关系是一件幸运的事？','satisfaction',false,'special3'],
-  [8,'当你需要情感支持、陪伴或实际帮助时，伴侣是否能够及时回应并满足你的需求？','satisfaction',false,'special4'],
-  [9,'回想你当初对这段关系的期待，现在的实际状况是否达到了你的期望？','satisfaction',false,'special4'],
-  [10,'总的来说，你对这段关系的整体质量是否感到满意？','satisfaction',false,'special3'],
+  [3,'你觉得你和伴侣之间的关系是否稳固，不会因为吵架或外部压力就轻易动摇？','satisfaction',false,'yesno_degree'],
+  [4,'和伴侣在一起的日子，你是否常常感到开心和快乐，而不是压抑或委屈？','satisfaction',false,'yesno_degree'],
+  [5,'你和伴侣之间是否有一种温暖、舒适的感觉，可以在对方面前放松做自己？','satisfaction',false,'yesno_degree'],
+  [6,'你是否觉得你和伴侣像一个团队，遇到事情会一起商量、共同面对，而不是各管各的？','satisfaction',false,'yesno_degree'],
+  [7,'这段关系是否让你感到满足和充实，觉得拥有这段关系是一件幸运的事？','satisfaction',false,'yesno_satisfied'],
+  [8,'当你需要情感支持、陪伴或实际帮助时，伴侣是否能够及时回应并满足你的需求？','satisfaction',false,'yesno_degree'],
+  [9,'回想你当初对这段关系的期待，现在的实际状况是否达到了你的期望？','satisfaction',false,'yesno_degree'],
+  [10,'总的来说，你对这段关系的整体质量是否感到满意？','satisfaction',false,'yesno_satisfied'],
   [11,'有趣 — 无聊（请选择偏向哪一端及程度）','satisfaction',false,'semantic_left_positive'],
   [12,'糟糕 — 好（请选择偏向哪一端及程度）','satisfaction',true,'semantic_right_positive'],
   [13,'充实 — 空虚（请选择偏向哪一端及程度）','satisfaction',false,'semantic_left_positive'],
@@ -950,22 +950,22 @@ const CSI_DATA = [
 
 // ===== QSI Data =====
 const QSI_DATA = [
-  [1,'你和伴侣的性生活是否让你感到满足和愉悦？','satisfaction',false,'satisfaction'],
-  [2,'总体而言，你对和伴侣之间的性生活是否满意？','satisfaction',false,'satisfaction'],
-  [3,'伴侣在性生活方面的表现（如前戏、技巧、关注你的感受）是否让你感到愉悦？','satisfaction',false,'degree'],
-  [4,'你对和伴侣之间的整体性关系是否满意？','satisfaction',false,'satisfaction'],
-  [5,'你觉得你和伴侣之间性生活的质量如何，是否令你感到满意？','satisfaction',false,'satisfaction'],
-  [6,'你和伴侣的性生活是否让你觉得体验很棒、很享受，是你期待的事？','satisfaction',false,'degree'],
-  [7,'你对伴侣在性方面的吸引力和表现是否满意？','satisfaction',false,'satisfaction'],
-  [8,'你和伴侣的性生活是否让你感到有情感连接和意义，而不只是身体的互动？','satisfaction',false,'degree'],
-  [9,'和伴侣的性生活是否让你觉得没有乐趣？','dissatisfaction',false,'frequency'],
-  [10,'和伴侣的性生活是否让你提不起兴趣？','dissatisfaction',false,'frequency'],
-  [11,'你是否觉得和伴侣的性生活不值得花时间和精力？','dissatisfaction',false,'frequency'],
-  [12,'你是否不享受与伴侣的性生活？','dissatisfaction',false,'frequency'],
-  [13,'和伴侣的性生活是否让你感到空虚？','dissatisfaction',false,'frequency'],
-  [14,'和伴侣的性生活是否让你觉得乏味、不令人兴奋？','dissatisfaction',false,'frequency'],
-  [15,'你是否宁愿不与伴侣进行性生活？','dissatisfaction',false,'frequency'],
-  [16,'你是否不期待与伴侣的性生活？','dissatisfaction',false,'frequency'],
+  [1,'你和伴侣的性生活是否让你感到满足和愉悦？','satisfaction',false,'yesno_satisfied'],
+  [2,'总体而言，你对和伴侣之间的性生活是否满意？','satisfaction',false,'yesno_satisfied'],
+  [3,'伴侣在性生活方面的表现（如前戏、技巧、关注你的感受）是否让你感到愉悦？','satisfaction',false,'yesno_degree'],
+  [4,'你对和伴侣之间的整体性关系是否满意？','satisfaction',false,'yesno_satisfied'],
+  [5,'你觉得你和伴侣之间性生活的质量如何，是否令你感到满意？','satisfaction',false,'yesno_satisfied'],
+  [6,'你和伴侣的性生活是否让你觉得体验很棒、很享受，是你期待的事？','satisfaction',false,'yesno_degree'],
+  [7,'你对伴侣在性方面的吸引力和表现是否满意？','satisfaction',false,'yesno_satisfied'],
+  [8,'你和伴侣的性生活是否让你感到有情感连接和意义，而不只是身体的互动？','satisfaction',false,'yesno_degree'],
+  [9,'和伴侣的性生活是否让你觉得没有乐趣？','dissatisfaction',false,'yesno_negative'],
+  [10,'和伴侣的性生活是否让你提不起兴趣？','dissatisfaction',false,'yesno_negative'],
+  [11,'你是否觉得和伴侣的性生活不值得花时间和精力？','dissatisfaction',false,'yesno_negative'],
+  [12,'你是否不享受与伴侣的性生活？','dissatisfaction',false,'yesno_negative'],
+  [13,'和伴侣的性生活是否让你感到空虚？','dissatisfaction',false,'yesno_negative'],
+  [14,'和伴侣的性生活是否让你觉得乏味、不令人兴奋？','dissatisfaction',false,'yesno_negative'],
+  [15,'你是否宁愿不与伴侣进行性生活？','dissatisfaction',false,'yesno_negative'],
+  [16,'你是否不期待与伴侣的性生活？','dissatisfaction',false,'yesno_negative'],
 ];
 
 // ===== Scale Config =====
@@ -1114,6 +1114,18 @@ new Vue({
         {value:2,label:'比较偏向右边'},
         {value:3,label:'非常偏向右边'},
       ];
+      const optsYesnoDegree = [
+        {value:3,label:'是的，非常多'},
+        {value:2,label:'是的，比较多'},
+        {value:1,label:'不是，比较少'},
+        {value:0,label:'不是，完全没有'},
+      ];
+      const optsYesnoSatisfied = [
+        {value:3,label:'是的，非常满意'},
+        {value:2,label:'是的，比较满意'},
+        {value:1,label:'不是，不太满意'},
+        {value:0,label:'不是，非常不满意'},
+      ];
       return CSI_DATA.map(item=>{
         const id = 'csi_'+item[0];
         const text = item[1];
@@ -1125,33 +1137,35 @@ new Vue({
         else if(type === 'special4') options = optsSpecial4;
         else if(type === 'semantic_left_positive') options = optsSemanticLeft;
         else if(type === 'semantic_right_positive') options = optsSemanticRight;
+        else if(type === 'yesno_degree') options = optsYesnoDegree;
+        else if(type === 'yesno_satisfied') options = optsYesnoSatisfied;
         return { id, text, options, type };
       });
     },
     formatQSIQuestions(){
-      const optsSatisfaction = [
-        {value:0,label:'非常不满意'},
-        {value:1,label:'不太满意'},
-        {value:2,label:'比较满意'},
-        {value:3,label:'非常满意'},
+      const optsYesnoSatisfied = [
+        {value:3,label:'是的，非常满意'},
+        {value:2,label:'是的，比较满意'},
+        {value:1,label:'不是，不太满意'},
+        {value:0,label:'不是，非常不满意'},
       ];
-      const optsDegree = [
-        {value:0,label:'几乎没有'},
-        {value:1,label:'比较少'},
-        {value:2,label:'比较多'},
-        {value:3,label:'非常多'},
+      const optsYesnoDegree = [
+        {value:3,label:'是的，非常多'},
+        {value:2,label:'是的，比较多'},
+        {value:1,label:'不是，比较少'},
+        {value:0,label:'不是，完全没有'},
       ];
-      const optsFrequency = [
-        {value:0,label:'从不'},
-        {value:1,label:'偶尔'},
-        {value:2,label:'经常'},
-        {value:3,label:'总是'},
+      const optsYesnoNegative = [
+        {value:0,label:'是的，总是如此'},
+        {value:1,label:'是的，经常如此'},
+        {value:2,label:'不是，偶尔如此'},
+        {value:3,label:'不是，从不如此'},
       ];
       return QSI_DATA.map(item=>{
         const type = item[4];
-        let options = optsDegree;
-        if(type === 'satisfaction') options = optsSatisfaction;
-        else if(type === 'frequency') options = optsFrequency;
+        let options = optsYesnoDegree;
+        if(type === 'yesno_satisfied') options = optsYesnoSatisfied;
+        else if(type === 'yesno_negative') options = optsYesnoNegative;
         return {
           id: 'qsi_'+item[0],
           text: item[1],
