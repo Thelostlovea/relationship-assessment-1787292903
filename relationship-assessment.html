@@ -1021,14 +1021,14 @@ const QSI_DATA = [
   [6,'你们的性生活，有感情上的亲密吗？','satisfaction',false,'intimate'],
   [7,'你会期待和伴侣的性生活吗？','satisfaction',false,'expect'],
   [8,'你们性生活的次数，你觉得合适吗？','satisfaction',false,'satisfied'],
-  [9,'你们的性生活，让你觉得没意思吗？','dissatisfaction',false,'negative'],
-  [10,'你觉得过性生活是浪费时间吗？','dissatisfaction',false,'negative'],
-  [11,'性生活让你感到空虚吗？','dissatisfaction',false,'negative'],
-  [12,'你宁愿不过性生活吗？','dissatisfaction',false,'negative'],
-  [13,'性生活让你失望吗？','dissatisfaction',false,'negative'],
-  [14,'性生活让你觉得尴尬吗？','dissatisfaction',false,'negative'],
-  [15,'性生活对你来说是种压力吗？','dissatisfaction',false,'negative'],
-  [16,'过完性生活，你会觉得孤独吗？','dissatisfaction',false,'negative'],
+  [9,'你们的性生活，让你觉得有意思吗？','satisfaction',false,'interesting'],
+  [10,'你觉得过性生活值得吗？','satisfaction',false,'worthwhile'],
+  [11,'性生活让你感到充实吗？','satisfaction',false,'fulfilled'],
+  [12,'你享受你们的性生活吗？','satisfaction',false,'enjoy2'],
+  [13,'性生活让你满意吗？','satisfaction',false,'satisfied2'],
+  [14,'性生活让你觉得自在吗？','satisfaction',false,'comfortable'],
+  [15,'性生活对你来说是种放松吗？','satisfaction',false,'relaxing'],
+  [16,'过完性生活，你会觉得满足吗？','satisfaction',false,'content'],
 ];
 
 // ===== Scale Config =====
@@ -1291,11 +1291,47 @@ new Vue({
           {value:1,label:'不太合适'},
           {value:0,label:'很不合适'},
         ],
-        negative: [
-          {value:3,label:'从来不会'},
-          {value:2,label:'偶尔会'},
-          {value:1,label:'经常会'},
-          {value:0,label:'总是会'},
+        interesting: [
+          {value:3,label:'很有意思'},
+          {value:2,label:'还算有意思'},
+          {value:1,label:'不太有意思'},
+          {value:0,label:'没意思'},
+        ],
+        worthwhile: [
+          {value:3,label:'很值得'},
+          {value:2,label:'还算值得'},
+          {value:1,label:'不太值得'},
+          {value:0,label:'不值得'},
+        ],
+        enjoy2: [
+          {value:3,label:'很享受'},
+          {value:2,label:'还算享受'},
+          {value:1,label:'不太享受'},
+          {value:0,label:'不享受'},
+        ],
+        satisfied2: [
+          {value:3,label:'很满意'},
+          {value:2,label:'还算满意'},
+          {value:1,label:'不太满意'},
+          {value:0,label:'很不满意'},
+        ],
+        comfortable: [
+          {value:3,label:'很自在'},
+          {value:2,label:'还算自在'},
+          {value:1,label:'不太自在'},
+          {value:0,label:'不自在'},
+        ],
+        relaxing: [
+          {value:3,label:'很放松'},
+          {value:2,label:'还算放松'},
+          {value:1,label:'不太放松'},
+          {value:0,label:'不放松'},
+        ],
+        content: [
+          {value:3,label:'很满足'},
+          {value:2,label:'还算满足'},
+          {value:1,label:'不太满足'},
+          {value:0,label:'很不满足'},
         ],
       };
       return QSI_DATA.map(item=>{
@@ -1516,30 +1552,22 @@ new Vue({
       ];
     },
     calculateQSIScores(){
-      // QSI: 8 satisfaction items + 8 dissatisfaction items
-      // Both dimensions: higher value = better (less dissatisfaction)
-      // Total = satScore + dissatScore (both 0-24, max 48)
-      let satScore = 0;
-      let dissatScore = 0;
+      // All 16 items are satisfaction, total max = 48
+      let total = 0;
       QSI_DATA.forEach(item=>{
         const id = 'qsi_'+item[0];
         const val = this.answers[id];
-        if(val === undefined) return;
-        if(item[2] === 'satisfaction') satScore += val;
-        else dissatScore += val;
+        if(val !== undefined) total += val;
       });
-
-      const dissatMax = 24; // 8 items * 3
-      const totalQuality = satScore + dissatScore;
-      this.totalScore = totalQuality;
+      this.totalScore = total;
 
       // Risk level
       const levels = this.currentScale.riskLevels;
       let idx = 0;
-      if(totalQuality >= 42) idx = 4;
-      else if(totalQuality >= 33) idx = 3;
-      else if(totalQuality >= 24) idx = 2;
-      else if(totalQuality >= 15) idx = 1;
+      if(total >= 42) idx = 4;
+      else if(total >= 33) idx = 3;
+      else if(total >= 24) idx = 2;
+      else if(total >= 15) idx = 1;
       else idx = 0;
       this.riskIndex = idx;
       this.riskLabel = levels[idx].label;
@@ -1548,7 +1576,17 @@ new Vue({
       const pcts = [10,30,65,90,98];
       this.percentileText = '高于约 ' + pcts[idx] + '% 的人群';
 
-      // Dimension scores
+      // Dimension scores: Q1-8 satisfaction, Q9-16 quality experience
+      let satScore = 0;
+      let qualScore = 0;
+      QSI_DATA.forEach(item=>{
+        const id = 'qsi_'+item[0];
+        const val = this.answers[id];
+        if(val === undefined) return;
+        if(item[0] <= 8) satScore += val;
+        else qualScore += val;
+      });
+
       this.dimensionScores = {
         satisfaction: {
           label: '性满意度',
@@ -1556,16 +1594,16 @@ new Vue({
           max: 24,
           desc: this.getQSIDimDesc('satisfaction', satScore, 24),
         },
-        dissatisfaction: {
-          label: '性不满意度',
-          score: dissatMax - dissatScore,
-          max: dissatMax,
-          desc: this.getQSIDimDesc('dissatisfaction', dissatMax - dissatScore, dissatMax),
+        quality: {
+          label: '性体验质量',
+          score: qualScore,
+          max: 24,
+          desc: this.getQSIDimDesc('quality', qualScore, 24),
         },
       };
 
-      this.resultConclusion = this.getQSIConclusion(totalQuality, idx);
-      this.deepInsight = this.getQSIDeepInsight(totalQuality, idx, satScore, dissatScore);
+      this.resultConclusion = this.getQSIConclusion(total, idx);
+      this.deepInsight = this.getQSIDeepInsight(total, idx, satScore, qualScore);
       this.improvementTips = this.getQSIImprovementTips(idx);
       this.communicationTips = this.getQSICommunicationTips();
     },
@@ -1576,9 +1614,9 @@ new Vue({
         if(pct >= 0.5) return '你对性生活的满意度处于中等水平，有愉悦的时刻，也有可以提升的空间。';
         return '你对性生活的满意度较低，可能很少从性爱中获得满足和愉悦。';
       }else{
-        if(pct >= 0.75) return '你在性生活中体验到较多的不满、失望甚至空虚感。';
-        if(pct >= 0.5) return '你有时会对性生活感到不满意，但程度尚在中等范围。';
-        return '你在性生活中较少体验到不满、空虚或失望的感受。';
+        if(pct >= 0.75) return '你在性生活中体验到较高的质量，觉得有意思、值得、自在且放松。';
+        if(pct >= 0.5) return '你的性体验质量处于中等水平，有些方面不错，有些方面可以改善。';
+        return '你的性体验质量较低，性生活可能让你感到乏味、不适或有压力。';
       }
     },
     getQSIConclusion(total, idx){
