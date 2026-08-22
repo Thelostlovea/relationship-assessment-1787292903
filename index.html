@@ -994,41 +994,41 @@ body {
 // ===== CSI Data =====
 const CSI_DATA = [
   [1,'你和伴侣在一起时，觉得幸福吗？','satisfaction',false,'happy'],
-  [2,'你们日常相处融洽吗？','satisfaction',false,'smooth'],
-  [3,'你们的关系经得起吵架和风波吗？','satisfaction',false,'stable'],
-  [4,'和伴侣在一起，你开心的时候多吗？','satisfaction',false,'degree'],
-  [5,'在伴侣面前，你能放松做真实的自己吗？','satisfaction',false,'degree'],
-  [6,'遇到事情，你们会一起商量共同面对吗？','satisfaction',false,'degree'],
-  [7,'拥有这段关系，你觉得满足吗？','satisfaction',false,'satisfied'],
-  [8,'你需要的时候，伴侣能及时陪在你身边吗？','satisfaction',false,'degree'],
-  [9,'现在的关系，达到你当初的期望了吗？','satisfaction',false,'met'],
-  [10,'总的来说，你对这段关系满意吗？','satisfaction',false,'satisfied'],
-  [11,'你们的关系有趣、有新鲜感吗？','satisfaction',false,'degree'],
-  [12,'你觉得你们的关系好吗？','satisfaction',false,'satisfied'],
-  [13,'你们的关系让你觉得充实有意义吗？','satisfaction',false,'degree'],
-  [14,'你觉得你们的关系牢靠吗？','satisfaction',false,'stable'],
-  [15,'这段关系让你对未来充满希望吗？','satisfaction',false,'degree'],
-  [16,'这段关系让你感到愉快吗？','satisfaction',false,'degree'],
+  [2,'你们日常相处融洽吗？','satisfaction',false,'harmonious'],
+  [3,'你们的关系稳固吗？','satisfaction',false,'stable'],
+  [4,'在伴侣面前，你能做真实的自己吗？','satisfaction',false,'can_do'],
+  [5,'遇到事情，你们会一起商量共同面对吗？','satisfaction',false,'frequency'],
+  [6,'你需要的时候，伴侣能陪在你身边吗？','satisfaction',false,'support'],
+  [7,'现在的关系达到你当初的期望了吗？','satisfaction',false,'met'],
+  [8,'总的来说，你对这段关系满意吗？','satisfaction',false,'satisfied'],
+  [9,'你们的关系有趣、有新鲜感吗？','satisfaction',false,'interesting'],
+  [10,'你们的关系让你觉得充实有意义吗？','satisfaction',false,'fulfilling'],
+  [11,'你们的关系经得起考验吗？','satisfaction',false,'resilient'],
+  [12,'这段关系让你对未来充满希望吗？','satisfaction',false,'hopeful'],
+  [13,'你信任伴侣吗？','satisfaction',false,'trust'],
+  [14,'你们能顺畅沟通心里话吗？','satisfaction',false,'communicate'],
+  [15,'吵架后你们能很快和好吗？','satisfaction',false,'reconcile'],
+  [16,'如果重新选择，你还会选现在的伴侣吗？','satisfaction',false,'rechoose'],
 ];
 
 // ===== QSI Data =====
 const QSI_DATA = [
-  [1,'你的性生活让你满足吗？','satisfaction',false,'satisfied'],
-  [2,'你对和伴侣的性生活满意吗？','satisfaction',false,'satisfied'],
-  [3,'伴侣在性生活中关注你的感受吗？','satisfaction',false,'degree'],
-  [4,'你们的性生活让你愉悦吗？','satisfaction',false,'satisfied'],
-  [5,'性生活质量让你满意吗？','satisfaction',false,'satisfied'],
-  [6,'性生活对你来说是一种享受吗？','satisfaction',false,'degree'],
-  [7,'你对伴侣的性吸引力满意吗？','satisfaction',false,'satisfied'],
-  [8,'你们的性生活有情感上的亲密感吗？','satisfaction',false,'degree'],
+  [1,'性生活让你满足吗？','satisfaction',false,'fulfilled'],
+  [2,'伴侣在性生活中关注你的感受吗？','satisfaction',false,'attention'],
+  [3,'你被伴侣吸引吗？','satisfaction',false,'attracted'],
+  [4,'性生活对你来说是一种享受吗？','satisfaction',false,'enjoy'],
+  [5,'你们能顺畅沟通性方面的需求吗？','satisfaction',false,'communicate'],
+  [6,'你们的性生活有情感上的亲密感吗？','satisfaction',false,'intimate'],
+  [7,'你期待和伴侣的性生活吗？','satisfaction',false,'expect'],
+  [8,'你们性生活的频率让你满意吗？','satisfaction',false,'satisfied'],
   [9,'你们的性生活让你觉得没意思吗？','dissatisfaction',false,'negative'],
-  [10,'你们的性生活让你提不起兴趣吗？','dissatisfaction',false,'negative'],
-  [11,'你觉得性生活浪费时间和精力吗？','dissatisfaction',false,'negative'],
-  [12,'你不享受你们的性生活吗？','dissatisfaction',false,'negative'],
-  [13,'性生活让你感到空虚吗？','dissatisfaction',false,'negative'],
-  [14,'你们的性生活乏味吗？','dissatisfaction',false,'negative'],
-  [15,'你宁愿不要过性生活吗？','dissatisfaction',false,'negative'],
-  [16,'你对性生活没有期待吗？','dissatisfaction',false,'negative'],
+  [10,'你觉得性生活浪费时间和精力吗？','dissatisfaction',false,'negative'],
+  [11,'性生活让你感到空虚吗？','dissatisfaction',false,'negative'],
+  [12,'你宁愿不要过性生活吗？','dissatisfaction',false,'negative'],
+  [13,'性生活让你感到失望吗？','dissatisfaction',false,'negative'],
+  [14,'性生活让你感到尴尬或不自在吗？','dissatisfaction',false,'negative'],
+  [15,'性生活对你来说是一种压力吗？','dissatisfaction',false,'negative'],
+  [16,'性生活后你感到孤独吗？','dissatisfaction',false,'negative'],
 ];
 
 // ===== Scale Config =====
@@ -1142,11 +1142,11 @@ new Vue({
           {value:1,label:'不太幸福'},
           {value:0,label:'非常不幸福'},
         ],
-        smooth: [
-          {value:3,label:'非常顺畅'},
-          {value:2,label:'比较顺畅'},
-          {value:1,label:'不太顺畅'},
-          {value:0,label:'非常不顺畅'},
+        harmonious: [
+          {value:3,label:'非常融洽'},
+          {value:2,label:'比较融洽'},
+          {value:1,label:'不太融洽'},
+          {value:0,label:'非常不融洽'},
         ],
         stable: [
           {value:3,label:'非常稳固'},
@@ -1154,17 +1154,23 @@ new Vue({
           {value:1,label:'不太稳固'},
           {value:0,label:'非常不稳固'},
         ],
-        degree: [
-          {value:3,label:'非常多'},
-          {value:2,label:'比较多'},
-          {value:1,label:'比较少'},
-          {value:0,label:'几乎没有'},
+        can_do: [
+          {value:3,label:'完全能'},
+          {value:2,label:'基本能'},
+          {value:1,label:'不太能'},
+          {value:0,label:'完全不能'},
         ],
-        satisfied: [
-          {value:3,label:'非常满意'},
-          {value:2,label:'比较满意'},
-          {value:1,label:'不太满意'},
-          {value:0,label:'非常不满意'},
+        frequency: [
+          {value:3,label:'总是会'},
+          {value:2,label:'经常会'},
+          {value:1,label:'偶尔会'},
+          {value:0,label:'几乎不会'},
+        ],
+        support: [
+          {value:3,label:'总是能'},
+          {value:2,label:'经常能'},
+          {value:1,label:'偶尔能'},
+          {value:0,label:'几乎不能'},
         ],
         met: [
           {value:3,label:'完全达到'},
@@ -1172,28 +1178,118 @@ new Vue({
           {value:1,label:'有点差距'},
           {value:0,label:'差距很大'},
         ],
-      };
-      return CSI_DATA.map(item=>{
-        const id = 'csi_'+item[0];
-        const text = item[1];
-        const type = item[4];
-        const options = optSets[type] || optSets.degree;
-        return { id, text, options, type };
-      });
-    },
-    formatQSIQuestions(){
-      const optSets = {
         satisfied: [
           {value:3,label:'非常满意'},
           {value:2,label:'比较满意'},
           {value:1,label:'不太满意'},
           {value:0,label:'非常不满意'},
         ],
-        degree: [
-          {value:3,label:'非常多'},
-          {value:2,label:'比较多'},
-          {value:1,label:'比较少'},
+        interesting: [
+          {value:3,label:'非常有趣'},
+          {value:2,label:'比较有趣'},
+          {value:1,label:'不太有趣'},
+          {value:0,label:'毫无趣味'},
+        ],
+        fulfilling: [
+          {value:3,label:'非常充实'},
+          {value:2,label:'比较充实'},
+          {value:1,label:'不太充实'},
+          {value:0,label:'非常空虚'},
+        ],
+        resilient: [
+          {value:3,label:'完全经得起'},
+          {value:2,label:'基本经得起'},
+          {value:1,label:'不太经得起'},
+          {value:0,label:'完全经不起'},
+        ],
+        hopeful: [
+          {value:3,label:'充满希望'},
+          {value:2,label:'比较有希望'},
+          {value:1,label:'不太有希望'},
+          {value:0,label:'毫无希望'},
+        ],
+        trust: [
+          {value:3,label:'完全信任'},
+          {value:2,label:'比较信任'},
+          {value:1,label:'不太信任'},
+          {value:0,label:'完全不信任'},
+        ],
+        communicate: [
+          {value:3,label:'非常顺畅'},
+          {value:2,label:'比较顺畅'},
+          {value:1,label:'不太顺畅'},
+          {value:0,label:'非常不顺畅'},
+        ],
+        reconcile: [
+          {value:3,label:'总是能'},
+          {value:2,label:'经常能'},
+          {value:1,label:'偶尔能'},
+          {value:0,label:'几乎不能'},
+        ],
+        rechoose: [
+          {value:3,label:'一定会'},
+          {value:2,label:'大概率会'},
+          {value:1,label:'不太会'},
+          {value:0,label:'绝对不会'},
+        ],
+      };
+      return CSI_DATA.map(item=>{
+        const id = 'csi_'+item[0];
+        const text = item[1];
+        const type = item[4];
+        const options = optSets[type] || optSets.satisfied;
+        return { id, text, options, type };
+      });
+    },
+    formatQSIQuestions(){
+      const optSets = {
+        fulfilled: [
+          {value:3,label:'非常满足'},
+          {value:2,label:'比较满足'},
+          {value:1,label:'不太满足'},
+          {value:0,label:'非常不满足'},
+        ],
+        attention: [
+          {value:3,label:'总是关注'},
+          {value:2,label:'经常关注'},
+          {value:1,label:'偶尔关注'},
+          {value:0,label:'几乎不关注'},
+        ],
+        attracted: [
+          {value:3,label:'非常吸引'},
+          {value:2,label:'比较吸引'},
+          {value:1,label:'不太吸引'},
+          {value:0,label:'毫无吸引力'},
+        ],
+        enjoy: [
+          {value:3,label:'完全是'},
+          {value:2,label:'基本是'},
+          {value:1,label:'不太是'},
+          {value:0,label:'完全不是'},
+        ],
+        communicate: [
+          {value:3,label:'非常顺畅'},
+          {value:2,label:'比较顺畅'},
+          {value:1,label:'不太顺畅'},
+          {value:0,label:'非常不顺畅'},
+        ],
+        intimate: [
+          {value:3,label:'非常有'},
+          {value:2,label:'比较有'},
+          {value:1,label:'不太有'},
           {value:0,label:'几乎没有'},
+        ],
+        expect: [
+          {value:3,label:'非常期待'},
+          {value:2,label:'比较期待'},
+          {value:1,label:'不太期待'},
+          {value:0,label:'毫无期待'},
+        ],
+        satisfied: [
+          {value:3,label:'非常满意'},
+          {value:2,label:'比较满意'},
+          {value:1,label:'不太满意'},
+          {value:0,label:'非常不满意'},
         ],
         negative: [
           {value:3,label:'从不'},
@@ -1204,7 +1300,7 @@ new Vue({
       };
       return QSI_DATA.map(item=>{
         const type = item[4];
-        const options = optSets[type] || optSets.degree;
+        const options = optSets[type] || optSets.fulfilled;
         return {
           id: 'qsi_'+item[0],
           text: item[1],
